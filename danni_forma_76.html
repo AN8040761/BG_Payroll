@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Данни от Форма 76</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         //month,id_n,r,o,m,b,d,a,s,n
+         function saveValues() {
+         	var frm = document.formRequest;
+         	var record = ""
+         		+       frm.year                   .value
+         		+ "," + frm.month                  .value
+         		+ "," + frm.id_n                   .value
+         		+ "," + frm.r                      .value
+         		+ "," + frm.o                      .value
+         		+ "," + frm.m                      .value
+         		+ "," + frm.b                      .value
+         		+ "," + frm.d                      .value
+         		+ "," + frm.a                      .value
+         		+ "," + frm.s                      .value
+         		+ "," + frm.n                      .value
+         		+ "," + frm.baza_pgo               .value
+         		+ "\r\n";
+         	frm.textarea1.value += record;
+         }
+         function clearText() {
+         	document.formRequest.id_n          .value = "";
+         	document.formRequest.r             .value = "";
+         	document.formRequest.o             .value = "";
+         	document.formRequest.m             .value = "";
+         	document.formRequest.b             .value = "";
+         	document.formRequest.d             .value = "";
+         	document.formRequest.a             .value = "";
+         	document.formRequest.s             .value = "";
+         	document.formRequest.n             .value = "";	
+         	document.formRequest.baza_pgo      .value = "";				 
+         }  
+         		
+      </script>
+      <script>
+         function download(filename, text) {
+         	var pom = document.createElement('a');
+         	pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+         	pom.setAttribute('download', filename);
+         	pom.style.display = 'none';
+         	document.body.appendChild(pom);
+         	pom.click();
+         	document.body.removeChild(pom);
+         }
+         		
+      </script>
+      <style>
+         body {
+         background-color:silver;
+         }
+         table {
+         margin-left:auto;
+         margin-right:auto;
+         }
+         .FormRequest {
+         background: lightyellow;
+         width:400px;
+         height:250px;
+         border:1px solid blue;
+         border-radius:10px 10px 10px 10px;
+         }
+         .FormRequest #formRequest{
+         margin-left:20px;
+         font-family:consolas;
+         color: blue;
+         }
+         .FormRequest #formRequest input[type="button"],input[type="reset"]{
+         border:1px solid green;
+         background: darkred;
+         color:white;
+         border-radius:3px 3px 3px 3px;
+         }
+      </style>
+   </head>
+   <body>
+      <table  class="FormRequest">
+         <tr>
+            <td>
+               <form name="formRequest" id="formRequest" action="javascript:null" onsubmit="saveValues(); return false">
+                  <p>
+                     Година, за която се въвеждат данните<br>
+                     <input type="text" name="year" id="year" required oninvalid="this.setCustomValidity('Това
+поле е задължително')" oninput="setCustomValidity('')"  maxlength="4" placeholder="2017"><br>	
+                     Месец, за който се въвеждат данните<br>
+                     <input type="text" name="month" id="month" required oninvalid="this.setCustomValidity('Това 
+поле е задължително')" oninput="setCustomValidity('')"  maxlength="2" placeholder="1"><br>
+                     Идентификационен номер на служителя<br>
+                     <input type="text" name="id_n" id="id_n" required oninvalid="this.setCustomValidity('Това 
+поле е задължително')" oninput="setCustomValidity('')"  maxlength="4" placeholder="1"><br>
+                     Р - Работен ден<br>
+                     <input type="text" name="r" id="r" maxlength="2" placeholder="1"><br>
+                     О – Редовен отпуск – платен годишен отпуск<br>
+                     <input type="text" name="o" id="o" maxlength="2" placeholder="1"><br>
+                     М – Майчинство – отпуск за бременност, раждане и за отглеждане на дете<br>
+                     <input type="text" name="m" id="m" maxlength="2" placeholder="1"><br>
+                     Б – Болнични – болнични, трудова злополука, гледане на болен член на семейството или болно дете<br>
+                     <input type="text" name="b" id="b" maxlength="2" placeholder="1"><br>
+                     Д – Изпълнение на държавни задължения – служебен отпуск.<br>
+                     <input type="text" name="d" id="d" maxlength="2" placeholder="1"><br>
+                     А – С разрешение на администрацията<br>
+                     <input type="text" name="a" id="a" maxlength="2" placeholder="1"><br>
+                     С – Самоотлъчка – неплатен отпуск без трудов стаж.<br>
+                     <input type="text" name="s" id="s" maxlength="2" placeholder="1"><br>
+                     Н – Празнични и почивни дни<br>
+                     <input type="text" name="n" id="n" maxlength="2" placeholder="1"><br>
+                     База за дневното възнаграждение за платен отпуск<br>
+                     <input type="text" name="baza_pgo" maxlength="10" id="baza_pgo" placeholder="1"><br>
+                  </p>
+                  <p>
+                     <input name="save" type="submit" value="Запиши"/>
+                     &#0160;
+                     <input type="button" value="Изчисти" onClick="clearText()"/>
+                  </p>
+                  <p>
+                     <i>Кликнете запиши, за да добавите данните</i><br />
+                     <textarea name="textarea1" id="textarea1" rows="5" cols="40">year,month,id_n,r,o,m,b,d,a,s,n,baza_pgo&#13;&#10;</textarea>
+                  </p>
+                  <input type="button" onclick="download('danni_forma_76.csv', document.getElementById('textarea1').value)" value="Изтегли"/>
+                  &#0160;
+                  <input type="reset" value="Нулирай"/>
+               </form>
+            </td>
+      </table>
+   </body>
+</html>

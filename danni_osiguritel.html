@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Данни за осигурител</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         function saveValues() {
+         	var frm = document.formRequest;
+         	var record = ""
+         		+       frm.name           .value
+         		+ "," + frm.code           .value
+         		+ "," + frm.ordinal_number .value
+         		+ "\r\n";
+         	frm.textarea1.value += record;
+         }
+         function clearText() {
+         	document.formRequest.name              .value = "";
+         	document.formRequest.code              .value = "";
+         	document.formRequest.ordinal_number    .value = "1";
+         }
+         		
+      </script>
+      <script>
+         function download(filename, text) {
+         	var pom = document.createElement('a');
+         	pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+         	pom.setAttribute('download', filename);
+         	pom.style.display = 'none';
+         	document.body.appendChild(pom);
+         	pom.click();
+         	document.body.removeChild(pom);
+         }
+         		
+      </script>
+      <script>
+         function SelectFirst(SelVal) {
+         	var arrSelVal = SelVal.split(",")
+         		if (arrSelVal.length > 1) {
+         			Valuetoselect = arrSelVal[0];
+         			document.getElementById("ordinal_number").value = Valuetoselect;
+         		}
+         }
+         		
+      </script>
+      <style>
+         body {
+         background-color:silver;
+         }
+         table {
+         margin-left:auto;
+         margin-right:auto;
+         }
+         .FormRequest {
+         background: lightyellow;
+         width:400px;
+         height:250px;
+         border:1px solid blue;
+         border-radius:10px 10px 10px 10px;
+         }
+         .FormRequest #formRequest{
+         margin-left:20px;
+         font-family:consolas;
+         color: blue;
+         }
+         .FormRequest #formRequest input[type="button"],input[type="reset"]{
+         border:1px solid green;
+         background: darkred;
+         color:white;
+         border-radius:3px 3px 3px 3px;
+         }
+      </style>
+   </head>
+   <body>
+      <table  class="FormRequest">
+         <tr>
+            <td>
+               <form name="formRequest" id="formRequest" action="javascript:null" onsubmit="saveValues(); return false">
+                  <p>
+                     Наименование на предприятието-осигурител:<br/>
+                     <input type="text" name="name" id="name" required oninvalid="this.setCustomValidity('Това поле е задължително')" oninput="setCustomValidity('')"  placeholder="Фирма ООД" /><br/>
+                     ЕИК по БУЛСТАТ :<br/>
+                     <input type="text" name="code" id="code" required oninvalid="this.setCustomValidity('Това поле е задължително')" oninput="setCustomValidity('')"  maxlength="10" placeholder="9 или 13 цифрен ЕИК" /><br/>
+                     Код на икономическата дейност на осигурителя:<br/>
+                     <select name="ordinal_number" id="ordinal_number" required oninvalid="this.setCustomValidity('Това поле е задължително')" oninput="setCustomValidity('')"  onchange="SelectFirst(this.value)">
+                        <option value="1" >01, 03 без 1.49 - Растениевъдство, животновъдство и лов, спомагателни дейности; Рибно стопанство</option>
+                        <option value="2" >2 - Горско стопанство</option>
+                        <option value="3" >1,49 - Отглеждане на други животни (пчеларство)</option>
+                        <option value="4" >5 - Добив на въглища</option>
+                        <option value="5" >6 - Добив на нефт и природен газ</option>
+                        <option value="6" >7 - Добив на метални руди</option>
+                        <option value="7" >8.11 - Добив на строителни материали</option>
+                        <option value="8" >8.11 - Добив на декоративни скални материали</option>
+                        <option value="9" >8.11 - Добив на варовик, суров гипс, креда, доломит и шисти</option>
+                        <option value="10">8.12 - Добив на трошен камък, чакъл и пясък</option>
+                        <option value="11">8.12 - Добив на глина и каолин</option>
+                        <option value="12">08.9 и 09 - Добив на други неметални материали и суровини; Спомагателни дейности в добива</option>
+                        <option value="13">10.1 без 10.12, 10.2 - Производство и преработка на месо; производство на месни продукти, без готови ястия; </option>
+                        <option value="13,1" class="multiline">&nbsp;&nbsp;&nbsp;Преработка и консервиране на риба и други водни животни, без готови ястия</option>
+                        <option value="14">10.12 - Производство и преработка на месо от домашни птици</option>
+                        <option value="15">10.3 - Преработка и консервиране на плодове и зеленчуци, без готови ястия</option>
+                        <option value="16">10.4 - Производство на растителни и животински масла и мазнини</option>
+                        <option value="17">10.5 - Производство на мляко и млечни продукти</option>
+                        <option value="18">10.6 - Производство на мелничарски продукти, нишесте и нишестени продукти</option>
+                        <option value="19">10.7 и 10.8 без 10.81 и 10.82 - Производство на хлебни и тестени изделия; Производство на други хранителни продукти</option>
+                        <option value="20">10.81 и 10.82 - Производство на захар; Производство на какао, шоколадови и захарни изделия</option>
+                        <option value="21">10.9 - Производство на готови храни за животни</option>
+                        <option value="22">11 без 11.05, 11.06 и 11.07 - Производство на напитки</option>
+                        <option value="23">11.05 и 11.06 - Производство на пиво и малц</option>
+                        <option value="24">11.07 - Производство на безалкохолни напитки, минерални и други бутилирани води</option>
+                        <option value="25">12 - Производство на тютюневи изделия</option>
+                        <option value="26">13 - Производство на текстил и изделия от текстил, без облекло</option>
+                        <option value="27">14 без 14.3 - Производство на облекло</option>
+                        <option value="28">14,3 - Производство на други трикотажни изделия</option>
+                        <option value="29">15 - Обработка на кожи; производство на обувки и други изделия от обработени кожи без косъм</option>
+                        <option value="30">16 - Производство на дървен материал и изделия от дървен материал и корк, без мебели;</option>
+                        <option value="30,1" class="multiline">&nbsp;&nbsp;&nbsp;производство на изделия от слама и материали за плетене</option>
+                        <option value="31">17 - Производство на хартия, картон и изделия от хартия и картон</option>
+                        <option value="32">18, 58 и 59 - Печатна дейност и възпроизвеждане на записани носители;</option>
+                        <option value="32,1" class="multiline">&nbsp;&nbsp;&nbsp;Издателска дейност; Производство на филми и телевизионни предавания, звукозаписване и издаване на музика</option>
+                        <option value="33">19 - Производство на кокс и рафинирани нефтопродукти</option>
+                        <option value="34">20 - Производство на химични продукти</option>
+                        <option value="35">21 - Производство на лекарствени вещества и продукти</option>
+                        <option value="36">22 - Производство на изделия от каучук и пластмаси</option>
+                        <option value="37">23 - Производство на изделия от други неметални минерални суровини</option>
+                        <option value="38">24 без 24.5 - Производство на основни метали</option>
+                        <option value="39">24.5 - Леене на метали</option>
+                        <option value="40">25 без 25.4 - Производство на метални изделия, без машини и оборудване</option>
+                        <option value="41">26 - Производство на компютърна и комуникационна техника, електронни и оптични продукти</option>
+                        <option value="42">27 - Производство на електрически съоръжения</option>
+                        <option value="43">28 без 28.11; 25.4 - Производство на машини и оборудване с общо и специално предназначение;</option>
+                        <option value="43,1" class="multiline">&nbsp;&nbsp;&nbsp;Производство на въоръжение и боеприпаси</option>
+                        <option value="44">28.11 - Производство на турбини и двигатели, без авиационни, автомобилни и мотоциклетни</option>
+                        <option value="45">29, 30 - Производство на автомобили, ремаркета и полуремаркета; Производство на превозни средства, без автомобили</option>
+                        <option value="46">31 - Производство на мебели</option>
+                        <option value="47">32 без 32.5, 33 - Производство, некласифицирано другаде; Ремонт и инсталиране на машини и оборудване</option>
+                        <option value="48">32.5 - Производство на медицински и зъболекарски инструменти и средства (Дейности в зъботехнически лаборатории)</option>
+                        <option value="49">35.1 - Производство, пренос и разпределение на електрическа енергия</option>
+                        <option value="50">35.2; 49.5 - Производство и разпределение на газообразни горива по газоразпределителните мрежи;</option>
+                        <option value="50,1" class="multiline">&nbsp;&nbsp;&nbsp;Тръбопроводен транспорт</option>
+                        <option value="51">35.3 - Производство и разпределение на топлинна енергия</option>
+                        <option value="52">36, 37 - Събиране, пречистване и доставяне на води; Събиране, отвеждане и пречистване на отпадъчни води</option>
+                        <option value="53">38 без 38.12 и 38.22; 39 - Събиране и обезвреждане на отпадъци; рециклиране на материали;</option>
+                        <option value="53,1" class="multiline">&nbsp;&nbsp;&nbsp;Възстановяване и други услуги по управление на отпадъци</option>
+                        <option value="54">38.12 и 38.22 - Събиране на опасни отпадъци; Обработване и обезвреждане на опасни отпадъци</option>
+                        <option value="55">41, 42 без 42.11 и 42.22, 43 - Строителство на сгради; Строителство на съоръжения; Специализирани строителни дейности</option>
+                        <option value="56">42.11 - Строителство на автомагистрали, пътища и самолетни писти</option>
+                        <option value="57">42.22 - Строителство на преносни и разпределителни електрически и далекосъобщителни мрежи</option>
+                        <option value="58">45, 46, 47 без 46.46, 47.73, 47.74 - Търговия на едро и дребно с автомобили и мотоциклети, техническо обслужване и ремонт;</option>
+                        <option value="58,1" class="multiline">&nbsp;&nbsp;&nbsp; Търговия на едро, без търговията с автомобили и мотоциклети;</option>
+                        <option value="58,1" class="multiline">&nbsp;&nbsp;&nbsp; Търговия на дребно, без търговията с автомобили и мотоциклети</option>
+                        <option value="59">46.46, 47.73, 47.74 - Търговия на едро с фармацевтични стоки, медицинска техника и апаратура; Търговия на дребно с</option>
+                        <option value="59,1" class="multiline">&nbsp;&nbsp;&nbsp;лекарства и други фармацевтични стоки; Търговия на дребно с медицински и ортопедични стоки</option>
+                        <option value="60">55, 56, 79 - Хотелиерство; Ресторантьорство; Туристическа агентска и операторска дейност;</option>
+                        <option value="60,1" class="multiline">&nbsp;&nbsp;&nbsp;други дейности, свързани с пътувания и резервации</option>
+                        <option value="61">49.1, 49.2, 52 - само за железопътен транспорт - Пътнически железопътен транспорт, междуселищен;</option>
+                        <option value="61,1" class="multiline">&nbsp;&nbsp;&nbsp;Товарен железопътен транспорт; Складиране на товари и спомагателни дейности в железопътния транспорт</option>
+                        <option value="62">49.3, 49.4 - Друг пътнически сухопътен транспорт; Товарен автомобилен транспорт и услуги по преместване</option>
+                        <option value="63">50 - Воден транспорт</option>
+                        <option value="64">51 - Въздушен транспорт</option>
+                        <option value="65">52, без железопътен транспорт - Складиране на товари и спомагателни дейности в транспорта (без железопътен транспорт)</option>
+                        <option value="66">53 - Пощенски и куриерски дейности</option>
+                        <option value="67">60, 61 - Радио- и телевизионна дейност; Далекосъобщения</option>
+                        <option value="68">64, 65, 66 - ФИНАНСОВИ И ЗАСТРАХОВАТЕЛНИ ДЕЙНОСТИ</option>
+                        <option value="69">62, 63, 68, 69, 70, 71, 73, 74, 77, 78, 81, 82 - Дейности в областта на информационните технологии;</option>
+                        <option value="69,1" class="multiline">&nbsp;&nbsp;&nbsp;Информационни услуги; ОПЕРАЦИИ С НЕДВИЖИМИ ИМОТИ; ПРОФЕСИОНАЛНИ ДЕЙНОСТИ И НАУЧНИ ИЗСЛЕДВАНИЯ;</option>
+                        <option value="69,2" class="multiline">&nbsp;&nbsp;&nbsp;АДМИНИСТРАТИВНИ И СПОМАГАТЕЛНИ ДЕЙНОСТИ</option>
+                        <option value="70">80 - Дейности по охрана и разследване</option>
+                        <option value="71">72 - Научноизследователска и развойна дейност</option>
+                        <option value="72">84 - ДЪРЖАВНО УПРАВЛЕНИЕ</option>
+                        <option value="73">85 - ОБРАЗОВАНИЕ</option>
+                        <option value="74">86 без 86.1, 75 - ХУМАННО ЗДРАВЕОПАЗВАНЕ И СОЦИАЛНА РАБОТА (без медицинска сестра, акушерка, рехабилитатор,</option>
+                        <option value="74,1" class="multiline">&nbsp;&nbsp;&nbsp;фелдшер и лаборант, включително главните и старшите); Ветеринарномедицинска дейност</option>
+                        <option value="75">86,1 - Дейност на болници (без началник- клиника/отделение, медицинска сестра, акушерка, рехабилитатор,</option>
+                        <option value="75,1" class="multiline">&nbsp;&nbsp;&nbsp;фелдшер и лаборант, включително главните и старшите)</option>
+                        <option value="76">87, 88 - Медико-социални грижи с настаняване; Социална работа без настаняване</option>
+                        <option value="77">90, 91, 92, 93 - КУЛТУРА, СПОРТ И РАЗВЛЕЧЕНИЯ (за 93.12 Дейност на спортни клубове - без професионален спортист във</option>
+                        <option value="77,1" class="multiline">&nbsp;&nbsp;&nbsp;футболен клуб)</option>
+                        <option value="78">95, 96, 97 - Ремонт на компютърна техника, на лични и домакински вещи; Други персонални услуги; ДЕЙНОСТИ НА</option>
+                        <option value="78,1" class="multiline">&nbsp;&nbsp;&nbsp;ДОМАКИНСТВА КАТО РАБОТОДАТЕЛИ</option>
+                        <option value="79">94 без 94.91, 99 - Дейности на организации с нестопанска цел (без дейност на религиозни организации); Дейности на</option>
+                        <option value="79,1" class="multiline">&nbsp;&nbsp;&nbsp;екстериториални организации и служби</option>
+                        <option value="80">93,12 - Дейност на спортни клубове (само за професионален спортист във футболен клуб)</option>
+                        <option value="81"> - Централен кооперативен съюз</option>
+                        <option value="82">86 без 86.1 - ХУМАННО ЗДРАВЕОПАЗВАНЕ И СОЦИАЛНА РАБОТА (само за медицинска сестра, акушерка, рехабилитатор,</option>
+                        <option value="82,1" class="multiline">&nbsp;&nbsp;&nbsp;фелдшер и лаборант)</option>
+                        <option value="83">86,1 - Дейност на болници (само за началник- клиника/отделение)</option>
+                        <option value="84">86,1 - Дейност на болници (само за медицинска сестра, акушерка, рехабилитатор, фелдшер и лаборант)</option>
+                        <option value="85">94.91 - Дейност на религиозни организации</option>
+                        <option value="99"></option>
+                     </select>
+                  </p>
+                  <p>
+                     <input name="save" type="submit" value="Запиши"/>
+                     &#0160;
+                     <input type="button" value="Изчисти" onClick="clearText()"/>
+                  </p>
+                  <p>
+                     <i>Кликнете запиши, за да добавите данните</i><br />
+                     <textarea name="textarea1" id="textarea1" rows="5" cols="40">name,code,ordinal_number&#13;&#10;</textarea>
+                  </p>
+                  <input type="button" onclick="download('danni_osiguritel.csv', document.getElementById('textarea1').value)" value="Изтегли"/>
+                  &#0160;
+                  <input type="reset" value="Нулирай"/>
+               </form>
+            </td>
+      </table>
+   </body>
+</html>
