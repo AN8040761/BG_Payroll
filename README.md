@@ -8,7 +8,7 @@ If you want to start over click "Clear".
 
 ![Alt text](/Images/danni_osiguren.png?raw=true "Danni osiguren")
 
-If you execute the file read_arr.py this will generate a file EMPL2000.txt, based on the
+If you run the file read_arr.py this will generate a file EMPL2000.txt, based on the
 data in danni_forma_76.csv, danni_osiguren.csv and danni_osiguritel.csv.
 
 Currently only 17 of the total of 50 fields in EMPL2000.txt are filled with the required
