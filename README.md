@@ -12,7 +12,7 @@ data in danni_forma_76.csv, danni_osiguren.csv and danni_osiguritel.csv.
 Currently only 17 of the total of 50 fields in EMPL2000.txt are filled with the required
 information. 
 
-If you have any questions related to the input forms or Form 1 according Ordinance "N8" please visit:
+If you have any questions related to the input forms or Form 1 according to Ordinance "N8" please visit:
 http://deklar1.getweb.cf/
 
 The python script has appropriate comments, while for now the HTML script is uncommented.
