@@ -6,7 +6,7 @@ If you want to add new data use the input forms danni_forma_76.html, danni_osigu
 After each new entry click "Save", when ready - click download.
 If you want to start over click "Clear".
 
-![Alt text](/Images/danni_osiguren.png?raw=true "Optional Title")
+![Alt text](/Images/danni_osiguren.png?raw=true "Danni osiguren")
 
 If you execute the file read_arr.py this will generate a file EMPL2000.txt, based on the
 data in danni_forma_76.csv, danni_osiguren.csv and danni_osiguritel.csv.
@@ -14,8 +14,6 @@ data in danni_forma_76.csv, danni_osiguren.csv and danni_osiguritel.csv.
 Currently only 17 of the total of 50 fields in EMPL2000.txt are filled with the required
 information. 
 
-If you have any questions related to the input forms or Form 1 according to Ordinance "N8" please visit:
-http://deklar1.getweb.cf/
+The python script has comments explaining the workflow of operations.
 
-The python script has appropriate comments, while for now the HTML script is uncommented.
-Please share your thoughts on possible improvements of the program.
+Please share your thoughts for possible improvements of the program.
