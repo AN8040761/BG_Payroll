@@ -1,3 +1,4 @@
+vim: set synthax=python:
 import csv
 
 '''The function read_arr takes as argument the name of a csv file without the extension 
