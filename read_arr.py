@@ -98,29 +98,6 @@ for row in omd:
 print(omd)
 print(osnoven_masiv)
 
-'''
- result = float(row['id_n']) + float(row['id_n']) * float(row['id_n'])
-    row.update( {'f233': '%.2f' % result})
-    row.update({'item4': 4, 'item5': 5})
-
- keys = omd[0].keys()
- with open('omd.csv', 'w') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()
-        dict_writer.writerows(omd)
-datafile = open('danni_osiguren.csv', 'r')
-
-datareader = csv.reader(datafile,delimiter=',')
-arr_name = []
-
-for row in datareader:
-    arr_name.append(row)
-del arr_name [0]
-for value in arr_name:
-    solution = float(value[0]) + float(value[0]) * float(value[0])
-    value.insert(7, '%.2f' % solution)
-
-print(arr_name)'''
 
 '''https://stackoverflow.com/questions/25417184/multiply-2-elements-in-each-row-create-new-column-list-of-lists-python
 https://stackoverflow.com/questions/1859864/how-to-create-an-integer-array-in-python
