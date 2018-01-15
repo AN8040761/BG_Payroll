@@ -3,7 +3,7 @@ import csv
 '''The function read_arr takes as argument the name of a csv file without the extension 
 and returns a list of lists created by each row in the csv file'''
 def read_arr( arr_name ):
-  datafile = open(arr_name + '.csv', 'r')
+  datafile = open('masivi/' + arr_name + '.csv', 'r')
   datareader = csv.reader(datafile,delimiter=',')
   arr_name = []
   for row in datareader:

@@ -1,0 +1,4 @@
+id_n,egn,flag,last_name,initials,gross_salary,experience_years,b_year,type_ens,proff_code,activity_code
+1,12345678,0,Kiril,AP,2000,5,1950,01,11119001,1
+2,12345672,0,Kiril,AP,1995,5,1950,01,11119011,119
+3,12345673,0,Kiril,AP,1995,5,1959,01,11117013,119
