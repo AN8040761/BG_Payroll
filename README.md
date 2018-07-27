@@ -8,7 +8,9 @@ After each new entry click "Save/Запиши", to enter the record into the dat
 To clear the content of all fields click "Refresh/Обнови".
 
 ![Alt text](/Images/py_danni_osiguritel.png?raw=true "Danni Osiguritel")
+
 ![Alt text](/Images/py_danni_osiguren.png?raw=true "Danni Osiguren")
+
 ![Alt text](/Images/py_danni_forma_76.png?raw=true "Danni Forma 76")
 
 
