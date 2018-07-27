@@ -1,5 +1,5 @@
 # BG_Payroll
-Payroll program, Bulgaria, Python, HTML, Javascript
+Payroll program, Bulgaria, Python, MySQL and bash
 
 This is a payroll accounting program written in Python, MySQL and bash and in accordance with Bulgarian social security laws.
 You should first create a the database and tables with the script "create_mysql.bash".
