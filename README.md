@@ -7,9 +7,9 @@ If you want to add new data use the input forms "danni_forma_76.py", "danni_osig
 After each new entry click "Save/Запиши", to enter the record into the database.
 To clear the content of all fields click "Refresh/Обнови".
 
-![Alt text](/Images/danni_osiguritel.png?raw=true "Danni Osiguritel")
-![Alt text](/Images/danni_osiguren.png?raw=true "Danni Osiguren")
-![Alt text](/Images/danni_forma_76.png?raw=true "Danni Forma 76")
+![Alt text](/Images/py_danni_osiguritel.png?raw=true "Danni Osiguritel")
+![Alt text](/Images/py_danni_osiguren.png?raw=true "Danni Osiguren")
+![Alt text](/Images/py_danni_forma_76.png?raw=true "Danni Forma 76")
 
 
 Please share your thoughts for possible improvements of the program.
